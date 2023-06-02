@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css_file/css_for_multiple_pages.css">
+    <link rel="stylesheet" media="screen and (max-width:450px)" href="css_file/phone.css">
+</head>
+<body>
+    <!-- {% extends 'base.html' %}
+    {% block content %} -->
+    <h1 id="application_form_heading">College Application Form</h1>
+
+    <form id="application_form" method="post" enctype="multipart/form-data">
+        <!-- {% csrf_token %} -->
+      <div class="application_info">
+         <!-- Personal Information -->
+         <h2 class="h2heading">Personal Information</h2>
+
+
+
+         <div class="application_info_child">
+         <div>
+            <label for="first_name">First Name:</label><br>
+            <!-- {{ form.first_name }} -->
+            <input type="text" name="first_name" id ="first_name" class="form-control" required>
+         </div>
+         <div class="sub_div">
+            <label for="last_name">Last Name:</label><br>
+            <!-- {{ form.last_name }} -->
+            <input type="text" name="last_name" id="last_name" class="form-control" required>
+         </div>
+         </div>
+
+
+         <div class="application_info_child">
+         <div>
+            <label for="date_of_birth">Date of Birth:</label><br>
+            <!-- {{ form.date_of_birth }} -->
+            <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" required>
+         </div>
+         <div class="sub_div">
+           <label for="gender">Gender:</label><br>
+           <!-- {{ form.gender }} -->
+           <input type="gender" name="gender" id="gender" class="form-control" required><br>
+           <select class="select" name="{{ form.gender.name }}" id="{{ form.gender.id_for_label }}">
+           <!-- {% for choice in form.gender.choices %} -->
+           <option value="{{ choice.0 }}"{% if choice.0 == form.gender.value %} selected{% endif %}>{{ choice.1 }}</option>
+           <!-- {% endfor %} -->
+           </select>
+        </div>
+        </div>
+
+
+        <div class="application_info_child">
+        <div>
+            <label for="email">Email:</label><br>
+            <!-- {{ form.email }} -->
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+        <div class="sub_div">
+            <label for="phone_number">Phone Number:</label><br>
+            <!-- {{ form.phone_number }} -->
+            <input type="number" name="phone_number" id="phone_number" class="form-control" required>
+        </div>
+        </div>
+
+
+        <div>
+            <label for="address">Address:</label><br>
+            <!-- {{ form.address }} -->
+<!--            <input type="text" name="address" id="address" class="form-control" required>-->
+            <textarea id="address" name="address" rows="5" cols="100"></textarea>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="application_info">
+        <!-- Academic Information -->
+        <h2 class="h2heading">Academic Information</h2>
+
+
+        <div class="application_info_child">
+        <div>
+            <label for="institution_name">Name of Institution(s) previously attended:</label><br>
+            <!-- {{ form.institution_name }} -->
+            <input type="text" name="institution_name" id="institution_name" class="form-control" required>
+        </div>
+        <div class="sub_div">
+            <label for="degree_received">Degree(s) received or in progress:</label><br>
+            <!-- {{ form.degree_received }} -->
+            <input type="text" name="degree_received" id="degree_received" class="form-control" required>
+        </div>
+        </div>
+
+        <div class="application_info_child">
+        <div>
+            <label for="field_of_study">Field of Study/Major:</label><br>
+            <!-- {{ form.field_of_study }} -->
+            <input type="text" name="field_of_study" id="field_of_study" class="form-control" required>
+        </div>
+        <div class="sub_div">
+            <label for="gpa">GPA:</label><br>
+            <!-- {{ form.gpa }} -->
+<!--            <input type="gpa" name="gpa" class="form-control" required>-->
+            <input type="number" name="gpa" id="gpa" step="0.01" min="0" max="9" required>
+        </div>
+        </div>
+
+        <div>
+            <label for="expected_graduation_date">Expected Graduation Date:</label><br>
+            <!-- {{ form.expected_graduation_date }} -->
+            <input type="date" name="expected_graduation_date" id="expected_graduation_date" class="form-control" required>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="application_info">
+        <!-- Additional Information -->
+        <h2 class="h2heading">Additional Information</h2>
+        <div>
+            <label for="extracurricular_activities">Extracurricular activities:</label>
+            <!-- {{ form.extracurricular_activities }} -->
+<!--            <input type="extracurricular_activities" name="extracurricular_activities" class="form-control" required>-->
+           <textarea id="extracurricular_activities" name="extracurricular_activities" rows="3" cols="100"></textarea>
+        </div>
+        <div>
+            <label for="volunteer_work">Volunteer work:</label>
+            <!-- {{ form.volunteer_work }} -->
+<!--            <input type="volunteer_work" name="volunteer_work" class="form-control" required>-->
+            <textarea id="volunteer_work" name="volunteer_work" rows="3" cols="100"></textarea>
+        </div>
+        <div>
+            <label for="work_experience">Work experience:</label>
+            <!-- {{ form.work_experience }} -->
+<!--            <input type="work_experience" name="work_experience" class="form-control" required>-->
+            <textarea id="work_experience" name="work_experience" rows="5" cols="100"></textarea>
+        </div>
+        <div>
+            <label for="essay">Essay/Personal statement:</label><br>
+            <!-- {{ form.essay }} -->
+<!--            <input type="essay" name="essay" class="form-control" required>-->
+            <textarea id="essay" name="essay" rows="5" cols="40"></textarea>
+        </div>
+<!--        <div>-->
+<!--            <label for="recommendation_letters">Letters of recommendation:</label>-->
+<!--            {{ form.recommendation_letters }}-->
+<!--            <input type="recommendation_letters" name="recommendation_letters" class="form-control" required>-->
+<!--        </div>-->
+
+<!--         Application Fee -->
+<!--        <h2>Application Fee</h2>-->
+<!--        <div>-->
+<!--            <label for="application_fee">Payment of application fee (if applicable):</label>-->
+<!--            {{ form.application_fee }}-->
+<!--            <input type="last_name" name="last_name" class="form-control" required>-->
+<!--        </div>-->
+
+
+        </div>
+        <!-- Submit Button -->
+        <div id="application_form_buttonDiv">
+            <button type="submit">Submit Application</button>
+        </div>
+    
+    </form>
+</body>
+<!-- {% endblock content %} -->
+</html>
